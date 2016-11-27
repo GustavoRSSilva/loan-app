@@ -1,5 +1,6 @@
 'use strict';
 
+// TODO: move this to .gitingore
 var app = angular.module('loanApp.constants', []);
 
 app.constant('firebaseContants',{

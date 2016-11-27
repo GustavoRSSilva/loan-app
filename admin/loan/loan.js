@@ -20,8 +20,6 @@ app.directive('loansContainer', ['firebaseContants', function(firebaseContants) 
             dbLoanRef.on('value', function(snap) {
                 _self.safeApply($scope, function() {
                     _self.loansArray = snap.val();
-                    let user = firebase.auth().currentUser;
-                    _self.userEmail = (user) ? user.email : '';
                 });
             });
 
