@@ -15,6 +15,11 @@ npm install
 npm start
 ```
 
+go to:
+```
+http://localhost:8000/
+```
+
 ###As a user not logged in:
 
 As a user not registed, i can:
