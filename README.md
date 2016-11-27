@@ -2,7 +2,7 @@
 
 To run, you need npm and bower installed.
 
-##to run:
+to run:
 
 ```
 npm install
@@ -10,3 +10,4 @@ npm install
 ```
 npm start
 ```
+
