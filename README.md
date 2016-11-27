@@ -34,7 +34,8 @@ As a user not registed, i can:
 As a user, i can:
 - View all the available loan;
 - Sign Out;
-- View all my post request (green for approved, red for reject, grey for pedding approval)
+- Create a new loan request;
+- View all my post request (green for approved, red for reject, grey for pedding approval);
 
 ![alt tag](https://github.com/GustavoRSSilva/loan-app/blob/master/assets/app_logged_in.jpg)
 
