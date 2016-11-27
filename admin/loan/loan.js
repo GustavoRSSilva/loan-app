@@ -47,6 +47,10 @@ app.directive('loansContainer', ['firebaseContants', function(firebaseContants) 
                     alert(e.message);
                     console.log(e.message);
                 });
+
+                this.provider = '';
+                this.interest = '';
+                this.loanYears = '';
             };
 
             var dbUserLoanRef = firebase.database().ref().child('users');
