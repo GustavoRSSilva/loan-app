@@ -1,0 +1,23 @@
+<div id="auth-container">
+    <p>
+        <a href="/admin" class="no-decoration" />
+        <button href="/admin" class="backoffice-btn" ng-click="auth.goToBackOffice()" />Go to backoffice</button>
+        </a>
+    </p>
+
+    <div ng-hide="auth.isUserLoggedIn()" novalidate>
+        <p>
+            <label><b>Email:</b> <input ng-model="auth.email" type="email" required /></label>
+            <label><b>Password:</b> <input ng-model="auth.pass" type="password" required/></label>
+        </p>
+        <button ng-click="auth.signUp()" />Sign Up</button>
+        <button ng-click="auth.signIn()" />Sign In</button>
+    </div>
+
+    <div ng-show="auth.isUserLoggedIn()">
+        <p>
+            <label>Hello {{auth.user.email}}</label>
+        </p>
+        <button ng-click="auth.signOut()" />Sign Out</button>
+    </div>
+</div>

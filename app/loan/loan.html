@@ -1,0 +1,73 @@
+<!-- Available loans types -->
+<div class="text-center" id="loans-main-container">
+    <h2>Available loans</h2>
+    <div ng-repeat="(loanObj, attr) in loan.loansArray" class="loan-card-container">
+        <div class="loan-card">
+            <label>loan provider code: </label><b>{{loanObj}}</b>
+            <div ng-repeat="(key, value) in attr">
+                {{key}} : {{value}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- User Loan  -->
+<div ng-show="loggedIn">
+
+    <!-- Loan Request Form -->
+    <form id="request-loan-container" name="loanRequestForm" ng-submit="loan.addLoanRequest()">
+        <h1>Submit a Loan Request</h1>
+        <table id="loan-request-table">
+            <tr>
+                <td class="text-right">
+                    <fieldset class="form-group">
+                        <label>Select a provider:</label>
+                        <select ng-model="loan.selectedOption" class="form-control" ng-options="loanObj for (loanObj, attr) in loan.loansArray" title="Loans Available" ng-change="loan.updateRequest()">
+                      <option value>No provider</option>
+                    </select>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label>Amount to loan:</label>
+                        <input ng-model="loan.moneyToLoan" class="form-control text-right" placeholder="Place a value" title="Money to loan" type="number" ng-change="loan.updateRequest()"></input>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label>User email:</label>
+                        <input ng-model="loan.userEmail" type="email" class="form-control" title="Email" readonly/>
+                    </fieldset>
+                </td>
+                <td class="text-right">
+                    <fieldset class="form-group">
+                        <label>Total to Pay:</label> <input class="text-right" ng-model="loan.totalToPay" readonly></input>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label>Total interest to pay:</label> <input class="text-right" ng-model="loan.totalInterest" readonly></input>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label>Monthly payments:</label> <input class="text-right" ng-model="loan.monthPayment" readonly></input>
+                    </fieldset>
+                </td>
+            </tr>
+        </table>
+        <fieldset class="form-group">
+            <input ng-disabled="!loan.selectedOption.interest" type="submit" class="btn btn-primary pull-right" value="Submit" />
+        </fieldset>
+    </form>
+
+    <!-- My Loans Request-->
+    <div id="user-loan-requests">
+        <h2 class="text-center">My Loans requests</h2>
+        <div ng-repeat="(loanObj, attr) in loan.userLoanRequestsArray" class="loan-card-container">
+            <div class="loan-card" ng-class="{'background-red': attr.status == 'REJECTED', 'background-green': attr.status == 'APPROVED'}">
+                <label>loan request code: </label><b>{{loanObj}}</b>
+                <div ng-repeat="(key, value) in attr">
+                    {{key}} : {{value}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-hide="loggedIn">
+    <h1 class="text-center">Please log In to request a Loan</h1>
+</div>
