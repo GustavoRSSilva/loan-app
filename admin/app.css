@@ -1,0 +1,117 @@
+/* app css stylesheet */
+
+body {
+  background-color: #EEEEEE;
+}
+#auth-container {
+    text-align: right;
+    padding: 20px 50px;
+}
+
+.backoffice-btn {
+    text-align: right;
+    float: left;
+}
+
+loans-container {
+    width: 100%;
+}
+
+#loans-main-container {
+    float: left;
+    width: 100%;
+    padding: 20px;
+}
+
+#request-loan-container {
+    margin: 30px 30%;
+    width: 38%;
+    border: 3px solid grey;
+    padding: 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+loan-footer {
+    float: left;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+
+/* app css stylesheet */
+
+#auth-container {
+    text-align: right;
+    padding: 20px 50px;
+}
+
+loans-container {
+    width: 100%;
+}
+
+#loans-main-container {
+    float: left;
+    width: 100%;
+    padding: 30px 0px 100px 0px;
+}
+
+.loan-card-container {
+    width: 33.33%;
+    display: inline-block;
+    float: left;
+    margin: 20px 0px;
+}
+
+.loan-card {
+    text-align: center;
+    position: relative;
+    float: left;
+    border: 1px solid black;
+    width: 80%;
+    left: 10%;
+}
+
+#loan-request-table {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+fieldset.form-group {
+    padding: 5px;
+}
+
+loan-footer {
+    float: left;
+    padding: 20px 0px;
+    text-align: center;
+    width: 100%;
+}
+
+.padding-5 {
+  padding: 5px;
+}
+
+.margin-5 {
+  margin: 5px;
+}
+
+.object-hidden{
+  opacity: 0;
+}
+
+.background-red {
+    background-color: red;
+}
+
+.background-green {
+    background-color: green;
+}

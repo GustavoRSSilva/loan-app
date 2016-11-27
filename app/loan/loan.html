@@ -3,7 +3,7 @@
     <h2>Available loans</h2>
     <div ng-repeat="(loanObj, attr) in loan.loansArray" class="loan-card-container">
         <div class="loan-card">
-            <label>loan provider code: </label><b>{{loanObj}}</b>
+            <label>Loan provider code: </label><b>{{loanObj}}</b>
             <div ng-repeat="(key, value) in attr">
                 {{key}} : {{value}}
             </div>
@@ -29,7 +29,7 @@
 
                     <fieldset class="form-group">
                         <label>Amount to loan:</label>
-                        <input ng-model="loan.moneyToLoan" class="form-control text-right" placeholder="Place a value" title="Money to loan" type="number" ng-change="loan.updateRequest()"></input>
+                        <input ng-model="loan.moneyToLoan" class="form-control text-right" placeholder="Place a value" title="Money to loan" type="number" ng-change="loan.updateRequest()" min="0"></input>
                     </fieldset>
                     <fieldset class="form-group">
                         <label>User email:</label>

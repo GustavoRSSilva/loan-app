@@ -32,7 +32,7 @@ app.directive('loansContainer', ['firebaseContants', function(firebaseContants) 
             this.updateRequest = function() {
                 var selectedOption = _self.selectedOption
                 _self.totalToPay = (selectedOption) ? (_self.moneyToLoan * (Math.pow((1 + (selectedOption.interest / 100)), selectedOption.loan_years))).toFixed(2) : 0;
-                _self.totalInterest = (_self.totalToPay - _self.moneyToLoan).toFixed(2);
+                _self.totalInterest = (_self.totalToPay) ?(_self.totalToPay - _self.moneyToLoan).toFixed(2) : 0;
                 _self.monthPayment = (selectedOption) ? (_self.totalToPay / (selectedOption.loan_years * 12)).toFixed(2) : 0;
             };
 
@@ -74,8 +74,10 @@ app.directive('loansContainer', ['firebaseContants', function(firebaseContants) 
                             _self.userLoanRequestsArray = snap.val();
                         });
                     });
+                    _self.userEmail = firebaseUser.email;
                 } else {
                     _self.userLoanRequestsArray = {};
+                    _self.userEmail = '';
                 }
             });
 

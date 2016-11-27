@@ -1,0 +1,64 @@
+<!-- Available loans types -->
+<div class="text-center" id="loans-main-container">
+    <h2>Available loans</h2>
+    <div ng-repeat="(loanObj, attr) in loan.loansArray" class="loan-card-container">
+        <div class="loan-card">
+            <label>Loan provider code: </label><b>{{loanObj}}</b>
+            <div ng-repeat="(key, value) in attr">
+                {{key}} : {{value}}
+            </div>
+            <input type="submit" class="btn btn-primary pull-right margin-5" value="Delete" ng-click="loan.deleteLoan(loanObj)" />
+        </div>
+    </div>
+</div>
+
+<!-- Loan Request Form -->
+<form id="request-loan-container" name="newLoanForm" ng-submit="loan.createNewLoan()">
+
+    <h1>Create new loan</h1>
+    <fieldset class="form-group">
+        <label>Interest (percentage):</label>
+        <input ng-model="loan.interest" class="form-control text-right" placeholder="insert a loan percentage" title="loan interest percentage" type="number" step="0.01" min="0"></input>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label>Loan duration (years):</label>
+        <input ng-model="loan.loanYears" class="form-control text-right" placeholder="insert the amount of years" title="loan years" type="number" min="0"></input>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <label>Loan provider:</label>
+        <input ng-model="loan.provider" class="form-control text-right" placeholder="insert the provider" title="loan provider" type="text"></input>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <input ng-disabled="!(loan.provider && loan.loanYears && loan.interest)" type="submit" class="btn btn-primary pull-right" value="Submit" />
+    </fieldset>
+</form>
+
+
+
+<!-- Users Request-->
+<div id="user-loan-requests">
+    <h2 class="text-center">Users Loans</h2>
+    <div ng-repeat="(userId, userLoan) in loan.userLoanRequestsArray">
+        <div ng-repeat="(loanObj, attr) in userLoan" class="loan-card-container">
+            <div class="loan-card" ng-class="{'background-red': attr.status == 'REJECTED', 'background-green': attr.status == 'APPROVED'}">
+                <label>loan request code: </label><b>{{loanObj}}</b>
+                <div ng-repeat="(key, value) in attr">
+                    {{key}} : {{value}}
+                </div>
+                <div ng-hide="attr.status == 'REJECTED' || attr.status == 'APPROVED'" class="padding-5">
+                    <input type="submit" class="btn btn-primary pull-right" value="Approve" ng-click="loan.evaluateLoan(userId,loanObj, true)" />
+
+                    <input type="submit" class="btn btn-primary pull-right" value="Reject" ng-click="loan.evaluateLoan(userId,loanObj, false)" />
+                </div>
+
+                <div ng-show="attr.status == 'REJECTED' || attr.status == 'APPROVED'" class="padding-5">
+                    <input class="object-hidden" type="submit" class="btn btn-primary pull-right" value="placeholder" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
